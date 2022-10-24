@@ -1,0 +1,1079 @@
+openapi: 3.0.2
+
+info:
+  title: Transport API documentation
+  version: 0.0.1
+  description: All available information about endpoints and interactions with them
+
+servers:
+  - url: http://localhost:8000
+    description: Local server
+
+
+paths:
+  /api/licenses/:
+    get:
+      operationId: listLicenses
+      description: ''
+      parameters:
+        - name: page
+          required: false
+          in: query
+          description: A page number within the paginated result set.
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Licenses'
+          description: ''
+      tags:
+        - api
+    post:
+      operationId: createLicenses
+      description: ''
+      parameters: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Licenses'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Licenses'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Licenses'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Licenses'
+          description: ''
+      tags:
+        - api
+  /api/licenses/{id}/:
+    get:
+      operationId: retrieveLicenses
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Licenses.
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Licenses'
+          description: ''
+      tags:
+        - api
+    put:
+      operationId: updateLicenses
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Licenses.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Licenses'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Licenses'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Licenses'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Licenses'
+          description: ''
+      tags:
+        - api
+    patch:
+      operationId: partialUpdateLicenses
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Licenses.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Licenses'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Licenses'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Licenses'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Licenses'
+          description: ''
+      tags:
+        - api
+    delete:
+      operationId: destroyLicenses
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Licenses.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+        - api
+  /api/clients/:
+    get:
+      operationId: listClients
+      description: ''
+      parameters:
+        - name: page
+          required: false
+          in: query
+          description: A page number within the paginated result set.
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Clients'
+          description: ''
+      tags:
+        - api
+    post:
+      operationId: createClients
+      description: ''
+      parameters: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Clients'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Clients'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Clients'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Clients'
+          description: ''
+      tags:
+        - api
+  /api/clients/{id}/:
+    get:
+      operationId: retrieveClients
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Clients.
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Clients'
+          description: ''
+      tags:
+        - api
+    put:
+      operationId: updateClients
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Clients.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Clients'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Clients'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Clients'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Clients'
+          description: ''
+      tags:
+        - api
+    patch:
+      operationId: partialUpdateClients
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Clients.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Clients'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Clients'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Clients'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Clients'
+          description: ''
+      tags:
+        - api
+    delete:
+      operationId: destroyClients
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Clients.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+        - api
+  /api/drivers/:
+    get:
+      operationId: listDrivers
+      description: ''
+      parameters:
+        - name: page
+          required: false
+          in: query
+          description: A page number within the paginated result set.
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Drivers'
+          description: ''
+      tags:
+        - api
+    post:
+      operationId: createDrivers
+      description: ''
+      parameters: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Drivers'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Drivers'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Drivers'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drivers'
+          description: ''
+      tags:
+        - api
+  /api/drivers/{id}/:
+    get:
+      operationId: retrieveDrivers
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Drivers.
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drivers'
+          description: ''
+      tags:
+        - api
+    put:
+      operationId: updateDrivers
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Drivers.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Drivers'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Drivers'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Drivers'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drivers'
+          description: ''
+      tags:
+        - api
+    patch:
+      operationId: partialUpdateDrivers
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Drivers.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Drivers'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Drivers'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Drivers'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drivers'
+          description: ''
+      tags:
+        - api
+    delete:
+      operationId: destroyDrivers
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Drivers.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+        - api
+  /api/orders/:
+    get:
+      operationId: listOrders
+      description: ''
+      parameters:
+        - name: page
+          required: false
+          in: query
+          description: A page number within the paginated result set.
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Orders'
+          description: ''
+      tags:
+        - api
+    post:
+      operationId: createOrders
+      description: ''
+      parameters: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Orders'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Orders'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Orders'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Orders'
+          description: ''
+      tags:
+        - api
+  /api/orders/{id}/:
+    get:
+      operationId: retrieveOrders
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Orders.
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Orders'
+          description: ''
+      tags:
+        - api
+    put:
+      operationId: updateOrders
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Orders.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Orders'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Orders'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Orders'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Orders'
+          description: ''
+      tags:
+        - api
+    patch:
+      operationId: partialUpdateOrders
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Orders.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Orders'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Orders'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Orders'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Orders'
+          description: ''
+      tags:
+        - api
+    delete:
+      operationId: destroyOrders
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Orders.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+        - api
+  /api/trips/:
+    get:
+      operationId: listTrips
+      description: ''
+      parameters:
+        - name: page
+          required: false
+          in: query
+          description: A page number within the paginated result set.
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Trips'
+          description: ''
+      tags:
+        - api
+    post:
+      operationId: createTrips
+      description: ''
+      parameters: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trips'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Trips'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Trips'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trips'
+          description: ''
+      tags:
+        - api
+  /api/trips/{id}/:
+    get:
+      operationId: retrieveTrips
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Trips.
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trips'
+          description: ''
+      tags:
+        - api
+    put:
+      operationId: updateTrips
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Trips.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trips'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Trips'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Trips'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trips'
+          description: ''
+      tags:
+        - api
+    patch:
+      operationId: partialUpdateTrips
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Trips.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trips'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Trips'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Trips'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trips'
+          description: ''
+      tags:
+        - api
+    delete:
+      operationId: destroyTrips
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Trips.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+        - api
+  /api/cars/:
+    get:
+      operationId: listCars
+      description: ''
+      parameters:
+        - name: page
+          required: false
+          in: query
+          description: A page number within the paginated result set.
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Cars'
+          description: ''
+      tags:
+        - api
+    post:
+      operationId: createCars
+      description: ''
+      parameters: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cars'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cars'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Cars'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cars'
+          description: ''
+      tags:
+        - api
+  /api/cars/{id}/:
+    get:
+      operationId: retrieveCars
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Cars.
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cars'
+          description: ''
+      tags:
+        - api
+    put:
+      operationId: updateCars
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Cars.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cars'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cars'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Cars'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cars'
+          description: ''
+      tags:
+        - api
+    patch:
+      operationId: partialUpdateCars
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Cars.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cars'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cars'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Cars'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cars'
+          description: ''
+      tags:
+        - api
+    delete:
+      operationId: destroyCars
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: A unique integer value identifying this Cars.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+        - api
+components:
+  schemas:
+    Licenses:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        category:
+          type: string
+          maxLength: 2
+      required:
+        - category
+    Clients:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        full_name:
+          type: string
+          maxLength: 255
+        birth_date:
+          type: string
+          format: date
+          nullable: true
+        phone:
+          type: string
+          maxLength: 11
+      required:
+        - full_name
+        - phone
+    Drivers:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        full_name:
+          type: string
+          maxLength: 255
+        birth_date:
+          type: string
+          format: date
+        license:
+          type: integer
+      required:
+        - birth_date
+        - license
+    Orders:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        volume:
+          type: number
+        weight:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        ship_date:
+          type: string
+          format: date
+        recovery_date:
+          type: string
+          format: date
+        shipment_price:
+          type: string
+          format: decimal
+          multipleOf: 0.01
+          maximum: 100000000
+          minimum: -100000000
+        client:
+          type: integer
+          nullable: true
+      required:
+        - volume
+        - weight
+        - ship_date
+        - recovery_date
+        - shipment_price
+    Trips:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        order:
+          type: integer
+        car:
+          type: integer
+        driver:
+          type: integer
+      required:
+        - order
+        - car
+        - driver
+    Cars:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        vin:
+          type: string
+          maxLength: 17
+        model:
+          type: string
+          maxLength: 255
+        volume:
+          type: number
+        payload:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        license:
+          type: integer
+      required:
+        - vin
+        - model
+        - volume
+        - payload
+        - license
